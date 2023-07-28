@@ -1,0 +1,16 @@
+from django.db import models
+from django.contrib.gis.db import models
+
+
+class Bank(models.Model):
+    name = models.CharField(max_length=20)
+    poly = models.PolygonField()
+
+    def __str__(self):
+        return self.name
+
+
+# polygon = GEOSGeometry('POLYGON ((-284.2283248901368 41.18007518656913, -284.1903877258301 41.18059198410026,
+# -284.14197921752935 41.1751654066378, -284.0659332275391 41.164698594788604, -284.0760612487793 41.14298432129297,
+# -28 4.19742584228516 41.127986934905636, -284.2260932922363 41.151903554023136, -284.2283248901368
+# 41.18007518656913))', srid=4326)
