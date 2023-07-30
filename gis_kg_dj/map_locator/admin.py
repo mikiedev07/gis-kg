@@ -8,6 +8,14 @@ from .models import (
 )
 
 admin.site.register(Region)
-admin.site.register(District)
-admin.site.register(Canton)
 admin.site.register(Contour)
+
+
+@admin.register(Canton)
+class CantonAdmin(admin.ModelAdmin):
+    list_display = ('title', 'district')
+
+
+@admin.register(District)
+class DistrictAdmin(admin.ModelAdmin):
+    list_display = ('title', 'region')
