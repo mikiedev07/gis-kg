@@ -21,7 +21,6 @@ from map_locator.urls import (
     region_router,
     district_router,
     canton_router,
-    contour_router,
 )
 from django.views.generic import TemplateView
 
@@ -35,6 +34,4 @@ urlpatterns = [
     path("regions/", include(region_router.urls)),
     path("districts/", include(district_router.urls)),
     path("cantons/", include(canton_router.urls)),
-    path("contours/", include(contour_router.urls)),
-    # path("contours/", include('map_locator.urls')),
 ]

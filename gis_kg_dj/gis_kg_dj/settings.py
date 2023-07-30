@@ -80,21 +80,14 @@ WSGI_APPLICATION = 'gis_kg_dj.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.contrib.gis.db.backends.postgis',  # Используем специфический движок для работы с PostGIS
-        'NAME': 'pdb',  # Имя вашей базы данных
-        'USER': 'user1',  # Имя пользователя базы данных
-        'PASSWORD': '1',  # Пароль пользователя базы данных
-        'HOST': 'pdatabase',  # Имя хоста базы данных (если используете Docker, то здесь указывается имя контейнера с PostgreSQL)
-        'PORT': '5432',  # Порт для подключения к базе данных
+        'ENGINE': 'django.contrib.gis.db.backends.postgis',
+        'NAME': 'pdb',
+        'USER': 'user1',
+        'PASSWORD': '1',
+        'HOST': 'pdatabase',
+        'PORT': '5432',
     }
 }
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
 
 
 # Password validation
