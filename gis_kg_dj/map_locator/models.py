@@ -32,4 +32,5 @@ class Contour(models.Model):
     geometry = models.PolygonField()
 
 
-
+class TestContour(models.Model):
+    geometry = models.PolygonField()

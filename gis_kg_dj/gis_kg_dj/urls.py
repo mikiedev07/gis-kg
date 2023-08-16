@@ -21,6 +21,7 @@ from map_locator.urls import (
     region_router,
     district_router,
     canton_router,
+    test_router,
 )
 from django.views.generic import TemplateView
 
@@ -34,4 +35,8 @@ urlpatterns = [
     path("", include(region_router.urls)),
     path("", include(district_router.urls)),
     path("", include(canton_router.urls)),
+    path('', include(test_router.urls)),
+    # path("graphql/", csrf_exempt(GraphQLView.as_view(graphiql=False))),
+    # Exposes your django admin at http://localhost:8000/graphql
+    # path("", include('map_locator.urls')),
 ]

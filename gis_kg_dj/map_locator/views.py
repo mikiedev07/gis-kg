@@ -1,12 +1,22 @@
 from rest_framework import viewsets
 from rest_framework.response import Response
+from rest_framework.generics import ListAPIView
 
 from .api.serializers import (
     RegionSerializer,
     DistrictSerializer,
     CantonSerializer,
+    TestContourSerializer,
 )
-from .models import Region, District, Canton
+from .models import Region, District, Canton, TestContour
+
+
+class RegionListAPIView(ListAPIView):
+    queryset = Region.objects.all()
+    serializer_class = RegionSerializer
+
+    def dispatch(self, request, *args, **kwargs):
+        return super().dispatch(request, *args, **kwargs)
 
 
 class RegionViewSet(viewsets.ReadOnlyModelViewSet):
@@ -47,4 +57,10 @@ class DistrictViewSet(viewsets.ReadOnlyModelViewSet):
 class CantonListView(viewsets.ModelViewSet):
     queryset = Canton.objects.all()
     serializer_class = CantonSerializer
+    http_method_names = ['get']
+
+
+class TestContourView(viewsets.ModelViewSet):
+    queryset = TestContour.objects.all()
+    serializer_class = TestContourSerializer
     http_method_names = ['get']

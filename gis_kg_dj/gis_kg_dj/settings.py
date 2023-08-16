@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 import os.path
+from datetime import timedelta
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -43,6 +44,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework_swagger',
     'django_filters',
+    'leaflet',
 ]
 
 MIDDLEWARE = [
@@ -170,4 +172,13 @@ REST_FRAMEWORK = {
     'DEFAULT_FILTER_BACKENDS': (
         'django_filters.rest_framework.DjangoFilterBackend',
     ),
+}
+
+LEAFLET_CONFIG = {
+    "DEFAULT_CENTER": (40.5, -0.09),
+    "DEFAULT_ZOOM": 1,
+    "MAX_ZOOM": 20,
+    "MIN_ZOOM": 3,
+    "SCALE": 'both',
+    "ATTRIBUTION_PREFIX": "My Custom Leaflet map"
 }
