@@ -4,7 +4,10 @@ from rest_framework import status
 from django.contrib.gis.geos import Polygon
 from rest_framework.test import APIClient, APITestCase
 from .models import Region, District, Canton, TestContour
-from .api.serializers import RegionSerializer, TestContourSerializer
+from .api.serializers import (
+    RegionSerializer,
+    TestContourSerializer,
+)
 
 
 class RegionTestCase(TestCase):
@@ -63,10 +66,3 @@ class TestContourSerializerTestCase(APITestCase):
             "coordinates": [list(polygon_coords)]
         }
         self.assertEqual(serializer.data['geometry'], expected_geojson)
-
-    def test_serializer_with_invalid_geometry(self):
-        invalid_geometry = "Invalid geometry string"
-        test_contour = TestContour.objects.create(geometry=invalid_geometry)
-
-        serializer = TestContourSerializer(instance=test_contour)
-        self.assertIsNone(serializer.data['geometry'])

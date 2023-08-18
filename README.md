@@ -6,7 +6,7 @@ The first thing to do is to clone the repository
 
 ```shell
 $ git clone https://github.com/mikiedev07/gis-kg.git
-$ cd gis-kg
+$ cd gis-kg/gis_kg_dj
 ```
 
 Run the project via Docker (docker compose). Go to directory gis_kg_dj with Dockerfile and docker-compose.yml files.

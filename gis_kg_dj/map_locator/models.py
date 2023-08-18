@@ -3,7 +3,7 @@ from django.contrib.gis.db import models
 
 class Region(models.Model):
     title = models.CharField(max_length=50)
-    geometry = models.PolygonField()
+    geometry = models.PolygonField(null=True)
 
     def __str__(self):
         return self.title
@@ -12,7 +12,7 @@ class Region(models.Model):
 class District(models.Model):
     title = models.CharField(max_length=50)
     region = models.ForeignKey(Region, on_delete=models.SET_NULL, null=True)
-    geometry = models.PolygonField()
+    geometry = models.PolygonField(null=True)
 
     def __str__(self):
         return self.title
@@ -21,7 +21,7 @@ class District(models.Model):
 class Canton(models.Model):
     title = models.CharField(max_length=50)
     district = models.ForeignKey(District, on_delete=models.SET_NULL, null=True)
-    geometry = models.PolygonField()
+    geometry = models.PolygonField(null=True)
 
     def __str__(self):
         return self.title

@@ -26,6 +26,13 @@ services:
     depends_on:
       - pdatabase
 
+  geoserver:
+    image: kartoza/geoserver
+    ports:
+      - 8080:8080
+    environment:
+      GEOSERVER_ADMIN_USER: admin
+      GEOSERVER_ADMIN_PASSWORD: adminpass
 #  hasura:
 #    image: hasura/graphql-engine:v2.31.0
 #    ports:
@@ -55,14 +62,6 @@ services:
 #      timeout: 10s
 #      retries: 5
 #      start_period: 5s
-
-  geoserver:
-    image: kartoza/geoserver
-    ports:
-      - 8080:8080
-    environment:
-      GEOSERVER_ADMIN_USER: admin
-      GEOSERVER_ADMIN_PASSWORD: adminpass
 
 volumes:
   pg_data:
